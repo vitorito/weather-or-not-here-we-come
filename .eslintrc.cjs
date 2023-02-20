@@ -8,6 +8,7 @@ module.exports = {
         "eslint:recommended",
         "plugin:react/recommended",
         "plugin:@typescript-eslint/recommended",
+        "airbnb",
         "next",
         "prettier"
     ],
@@ -23,5 +24,6 @@ module.exports = {
         "@typescript-eslint"
     ],
     "rules": {
+        "react/jsx-filename-extension": "off"
     }
 };
