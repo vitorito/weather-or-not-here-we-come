@@ -1,11 +1,15 @@
 /** @type {import('tailwindcss').Config} */
+
+// eslint-disable-next-line import/no-extraneous-dependencies, @typescript-eslint/no-var-requires
+const { fontFamily } = require('tailwindcss/defaultTheme');
+
 module.exports = {
   content: ["./src/pages/*.tsx"],
   theme: {
     extend: {},
     fontFamily: {
-      'mono': ['"Noto Sans Mono"', 'monospace'],
-      'poppins': ['"Poppins"', 'sans-serif']
+      'mono': ['var(--font-mono)', ...fontFamily.mono],
+      'poppins': ['var(--font-poppins)', ...fontFamily.sans]
     },
   },
   screens: {
