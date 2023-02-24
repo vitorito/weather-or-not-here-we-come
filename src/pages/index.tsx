@@ -1,21 +1,9 @@
 import Head from 'next/head';
 
-// eslint-disable-next-line camelcase
-import { Noto_Sans_Mono, Poppins } from '@next/font/google';
+import MainContainer from '@/components/MainContainer';
+import SearchCity from '@/components/search-city/SearchCity';
 
-const poppins = Poppins({
-  weight: ['300', '400', '600'],
-  subsets: ['latin'],
-  variable: '--font-poppins',
-});
-
-const mono = Noto_Sans_Mono({
-  weight: ['300', '400', '600'],
-  subsets: ['latin'],
-  variable: '--font-mono',
-});
-
-export default function Home() {
+function Home() {
   return (
     <>
       <Head>
@@ -23,9 +11,11 @@ export default function Home() {
         <meta name="description" content="Site de previsão do tempo" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
-      <main className={`${poppins.variable} ${mono.variable} font-poppins`}>
-        <h1 className="bg-black text-white">Whater Or Not Here We Come</h1>
-      </main>
+      <MainContainer className="flex items-center justify-center">
+        <SearchCity />
+      </MainContainer>
     </>
   );
 }
+
+export default Home;
