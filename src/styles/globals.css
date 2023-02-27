@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  body {
+    @apply bg-gray-200 h-screen
+  }
+}
+
 @layer components {
   ::-webkit-scrollbar {
     width: 4px;

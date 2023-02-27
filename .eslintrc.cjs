@@ -31,6 +31,7 @@ module.exports = {
         "import/extensions": "off",
         "jsx-a11y/label-has-associated-control": "off",
         "jsx-a11y/control-has-associated-label": "off",
-        "import/no-anonymous-default-export": [2, { "allowObject": true }]
+        "import/no-anonymous-default-export": [2, { "allowObject": true }],
+        "react/no-array-index-key": "off"
     }
 };
