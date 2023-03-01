@@ -23,11 +23,11 @@ const getTodayWeather = (city: FullCityWeatherData) => {
 };
 
 function TodayCityWeather({ city }: TodayCityWeatherProps) {
-  const cityDate = new Date(city.current_weather.time);
+  const cityDate = new Date(city.date);
   const todayWeather = getTodayWeather(city);
 
   return (
-    <Container className="flex flex-col w-full h-64">
+    <Container className="flex flex-col w-full grow md:h-full">
       <div className="flex items-center bg-black p-2  rounded-t-md">
         <h2 className="text-white text-2xl leading-6 grow">
           <span className="block">{city.name}</span>
@@ -40,12 +40,10 @@ function TodayCityWeather({ city }: TodayCityWeatherProps) {
         </h2>
         <div className="text-white text-center px-1">
           <span className="block text-xl">{week[cityDate.getDay()]}</span>
-          <span className="text-gray-300">
-            {cityDate.toLocaleDateString('pt-br')}
-          </span>
+          <span className="text-gray-300">{cityDate.toLocaleDateString()}</span>
         </div>
       </div>
-      <div className="flex flex-col justify-center grow gap-0.5 px-3">
+      <div className="flex flex-col justify-center grow gap-0.5 p-3">
         <WeatherItem
           title="Temperaturas máxima e mínima"
           Icon={<BsThermometerHalf size={30} className="-ml-2 mr-0.5" />}
@@ -74,7 +72,6 @@ function TodayCityWeather({ city }: TodayCityWeatherProps) {
           Icon={<SiRainmeter size={25} className="w-[30px] -ml-2 mr-0.5" />}
           legend="Precipitação"
           value={`${todayWeather.precipitation_sum}mm`}
-          border={false}
         />
       </div>
     </Container>

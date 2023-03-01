@@ -29,6 +29,7 @@ export type Weathercode =
   | 99;
 
 export type PartialCityWeatherData = {
+  date: string;
   utc_offset_seconds: number;
   timezone: string;
   daily: {
@@ -38,6 +39,8 @@ export type PartialCityWeatherData = {
     temperature_2m_min: number[];
     precipitation_sum: number[];
     precipitation_probability_max: number[];
+    sunset: string[];
+    sunrise: string[];
   };
   daily_units: {
     time: string;

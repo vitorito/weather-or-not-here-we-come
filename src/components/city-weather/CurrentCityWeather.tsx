@@ -1,25 +1,49 @@
 import getWeatherInfo from '@/lib/getWeatherInfo';
-import { Weathercode } from '@/types/wetherData';
+import { FullCityWeatherData } from '@/types/wetherData';
 import Container from '../Container';
 import WindInfo from './WindInfo';
 
 type CurrentCityWeatherProps = {
-  currentWeather: {
-    temperature: number;
-    weathercode: Weathercode;
-    windspeed: number;
-    winddirection: number;
-    time: string;
-  };
+  city: FullCityWeatherData;
 };
 
-function CurrentCityWeather({ currentWeather }: CurrentCityWeatherProps) {
+const fortyFiveMinutesInMs = 45 * 60 * 1000;
+
+const getBgStyle = (city: FullCityWeatherData) => {
+  const cityDate = new Date(city.date);
+
+  const sunriseStart = new Date(city.daily.sunrise[0]);
+  const sunriseEnd = new Date(sunriseStart.getTime() + fortyFiveMinutesInMs);
+  const sunsetEnd = new Date(city.daily.sunset[0]);
+  const sunsetStart = new Date(sunsetEnd.getTime() - fortyFiveMinutesInMs);
+
+  // sunrise period
+  if (cityDate >= sunriseStart && cityDate <= sunriseEnd) {
+    return 'from-yellow-400 via-cyan-900 to-slate-900 bg-gradient-to-t';
+  }
+
+  // day period
+  if (cityDate > sunriseEnd || cityDate < sunsetStart) {
+    return 'from-cyan-500 to-sky-900 bg-gradient-to-t';
+  }
+
+  // sunset period
+  if (cityDate >= sunsetStart && cityDate <= sunsetEnd) {
+    return 'from-yellow-500 via-orange-600 to-sky-900 bg-gradient-to-t';
+  }
+
+  // night and dawn period
+  return 'from-cyan-800 to-slate-900 bg-gradient-to-t';
+};
+
+function CurrentCityWeather({ city }: CurrentCityWeatherProps) {
+  const currentWeather = city.current_weather;
   const weatherInfo = getWeatherInfo(currentWeather.weathercode);
 
   return (
     <Container
-      className="relative flex flex-col items-center justify-center gap-4 grow a
-      w-full md:h-64 text-white from-cyan-900 to-gray-900 bg-gradient-to-t"
+      className={`relative flex flex-col items-center justify-center gap-4 grow
+      w-full md:h-full text-white ${getBgStyle(city)}`}
     >
       <weatherInfo.icon
         title={`Clima ${weatherInfo.name}`}

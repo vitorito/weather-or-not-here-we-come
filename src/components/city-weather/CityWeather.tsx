@@ -10,9 +10,9 @@ function CityWeather({ city }: CityWeatherProps) {
   return (
     <div
       className="flex flex-col  items-center justify-between h-full p-3 gap-3
-      md:flex-row md:gap-5 md:h-fit md:pt-10"
+      md:flex-row md:gap-5 md:h-80 xl:h-[350px] md:pt-10"
     >
-      <CurrentCityWeather currentWeather={city.current_weather} />
+      <CurrentCityWeather city={city} />
       <TodayCityWeather city={city} />
     </div>
   );
