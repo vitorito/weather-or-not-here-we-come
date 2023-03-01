@@ -1,11 +1,11 @@
-import { CityData } from '@/lib/city';
+import { SearchCityData } from '@/lib/searchCities';
 import { useState } from 'react';
 import SearchForm from './SearchForm';
 import SearchResult from './SearchResult';
 import SelectCurrentLocationButton from './SelectCurrentLocationButton';
 
 function SearchCity() {
-  const [results, setResults] = useState<CityData[]>([]);
+  const [results, setResults] = useState<SearchCityData[]>([]);
 
   return (
     <div

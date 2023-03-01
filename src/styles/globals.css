@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply bg-gray-200 h-screen
+    @apply bg-slate-200 h-screen;
   }
 }
 
@@ -24,6 +24,12 @@
 
   ::-webkit-scrollbar-thumb:hover {
     background: #666;
+  }
+
+  .a {
+    background-image: url(https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pexels.com%2Fsearch%2Fblue%2520sky%2F&psig=AOvVaw3-IHKLJI6rqRslqASkcod6&ust=1677671661375000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCNjjko2UuP0CFQAAAAAdAAAAABAE);
+    background-position: center;
+    object-fit: cover;
   }
 
   .btn {

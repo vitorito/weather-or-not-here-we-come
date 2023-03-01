@@ -1,8 +1,8 @@
-import { CityData } from '@/lib/city';
+import { SearchCityData } from '@/lib/searchCities';
 import { MdAddLocationAlt } from 'react-icons/md';
 
 type SearchResultProps = {
-  result: CityData[];
+  result: SearchCityData[];
 };
 
 function SearchResult({ result }: SearchResultProps) {

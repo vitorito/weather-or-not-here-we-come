@@ -1,8 +1,12 @@
-import { CityData, MIN_CITY_NAME_LEN, searchCities } from '@/lib/city';
+import {
+  MIN_CITY_NAME_LEN,
+  SearchCityData,
+  searchCities,
+} from '@/lib/searchCities';
 import { ChangeEvent, Dispatch, SetStateAction, useState } from 'react';
 
 type SearchFormProps = {
-  setResults: Dispatch<SetStateAction<CityData[]>>;
+  setResults: Dispatch<SetStateAction<SearchCityData[]>>;
 };
 
 function SearchForm({ setResults }: SearchFormProps) {
