@@ -3,6 +3,7 @@ import { FullCityWeatherData } from '@/types/wetherData';
 import { useState } from 'react';
 import { GiHeavyRain } from 'react-icons/gi';
 import Container from '../Container';
+import Button from '../Button';
 
 const daysLimit = 4;
 
@@ -70,13 +71,13 @@ function NextDaysWeather({ city }: NextDaysWeatherProps) {
           </div>
         </Container>
       ))}
-      <button
+      <Button
         type="button"
         onClick={() => setIsShrinked((prev) => !prev)}
-        className="btn bg-cyan-800 hover:bg-cyan-700 h-14 text-white md:hidden"
+        className="bg-cyan-800 hover:bg-cyan-700 h-14 text-white md:hidden"
       >
         {isShrinked ? 'Próximos dias' : 'Mostrar menos'}
-      </button>
+      </Button>
     </div>
   );
 }

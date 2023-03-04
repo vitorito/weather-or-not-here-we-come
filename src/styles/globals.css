@@ -26,10 +26,6 @@
     background: #666;
   }
 
-  .btn {
-    @apply w-full outline-none rounded-md px-2 py-1;
-  }
-
   .hideable-item:nth-last-child(-n + 4) {
     display: none;
   }

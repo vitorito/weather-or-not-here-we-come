@@ -33,6 +33,7 @@ module.exports = {
         "jsx-a11y/control-has-associated-label": "off",
         "import/no-anonymous-default-export": [2, { "allowObject": true }],
         "react/no-array-index-key": "off",
-        "no-plusplus": "off"
+        "no-plusplus": "off",
+        "react/jsx-props-no-spreading": "off"
     }
 };
