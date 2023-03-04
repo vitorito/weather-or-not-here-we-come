@@ -8,7 +8,10 @@ type WindInfoProps = {
 
 function WindInfo({ speed, direction }: WindInfoProps) {
   return (
-    <div className="absolute flex flex-col items-center right-3 top-6">
+    <div
+      className="flex flex-col items-center
+      absolute right-3 top-6 md:top-8 md:right-6"
+    >
       <div
         title="Direção do vento"
         className="flex items-center justify-center relative

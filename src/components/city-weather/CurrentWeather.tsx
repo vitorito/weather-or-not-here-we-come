@@ -3,7 +3,7 @@ import { FullCityWeatherData } from '@/types/wetherData';
 import Container from '../Container';
 import WindInfo from './WindInfo';
 
-type CurrentCityWeatherProps = {
+type CurrentWeatherProps = {
   city: FullCityWeatherData;
 };
 
@@ -36,14 +36,14 @@ const getBgStyle = (city: FullCityWeatherData) => {
   return 'from-cyan-800 to-slate-900 bg-gradient-to-t';
 };
 
-function CurrentCityWeather({ city }: CurrentCityWeatherProps) {
+function CurrentWeather({ city }: CurrentWeatherProps) {
   const currentWeather = city.current_weather;
   const weatherInfo = getWeatherInfo(currentWeather.weathercode);
 
   return (
     <Container
       className={`relative flex flex-col items-center justify-center gap-4 grow
-      w-full md:h-full text-white ${getBgStyle(city)}`}
+      w-full h-[45vh] max-h-[290px] md:h-80 text-white ${getBgStyle(city)}`}
     >
       <weatherInfo.icon
         title={`Clima ${weatherInfo.name}`}
@@ -67,4 +67,4 @@ function CurrentCityWeather({ city }: CurrentCityWeatherProps) {
   );
 }
 
-export default CurrentCityWeather;
+export default CurrentWeather;

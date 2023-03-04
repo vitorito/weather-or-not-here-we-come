@@ -1,6 +1,7 @@
 import { FullCityWeatherData } from '@/types/wetherData';
-import CurrentCityWeather from './CurrentCityWeather';
-import TodayCityWeather from './TodayCityWeather';
+import CurrentWeather from './CurrentWeather';
+import NextDaysWeather from './NextDaysWeather';
+import TodayWeather from './TodayWeather';
 
 type CityWeatherProps = {
   city: FullCityWeatherData;
@@ -9,11 +10,12 @@ type CityWeatherProps = {
 function CityWeather({ city }: CityWeatherProps) {
   return (
     <div
-      className="flex flex-col  items-center justify-between h-full p-3 gap-3
-      md:flex-row md:gap-5 md:h-80 xl:h-[350px] md:pt-10"
+      className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-y-5
+      w-full h-fit p-3 md:p-6"
     >
-      <CurrentCityWeather city={city} />
-      <TodayCityWeather city={city} />
+      <CurrentWeather city={city} />
+      <TodayWeather city={city} />
+      <NextDaysWeather city={city} />
     </div>
   );
 }

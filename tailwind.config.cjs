@@ -11,14 +11,14 @@ module.exports = {
       'mono': ['var(--font-mono)', ...fontFamily.mono],
       'poppins': ['var(--font-poppins)', ...fontFamily.sans]
     },
-  },
-  screens: {
-    'xsm': '360px',
-    'sm': '640px',
-    'md': '768px',
-    'lg': '1024px',
-    'xl': '1280px',
-    '2xl': '1536px',
+    screens: {
+      'xsm': '460px',
+      'sm': '640px',
+      'md': '768px',
+      'lg': '1024px',
+      'xl': '1280px',
+      '2xl': '1536px',
+    },
   },
   plugins: [],
 };

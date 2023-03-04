@@ -1,15 +1,14 @@
 import getWeatherInfo from '@/lib/getWeatherInfo';
+import getWeekDay from '@/lib/getWeekDay';
 import { FullCityWeatherData } from '@/types/wetherData';
 import { BsCloudRain, BsThermometerHalf } from 'react-icons/bs';
 import { SiRainmeter } from 'react-icons/si';
 import Container from '../Container';
 import WeatherItem from './WeatherItem';
 
-type TodayCityWeatherProps = {
+type TodayWeatherProps = {
   city: FullCityWeatherData;
 };
-
-const week = ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta'];
 
 const getTodayWeather = (city: FullCityWeatherData) => {
   const { daily } = city;
@@ -22,13 +21,13 @@ const getTodayWeather = (city: FullCityWeatherData) => {
   };
 };
 
-function TodayCityWeather({ city }: TodayCityWeatherProps) {
+function TodayWeather({ city }: TodayWeatherProps) {
   const cityDate = new Date(city.date);
   const todayWeather = getTodayWeather(city);
 
   return (
-    <Container className="flex flex-col w-full grow md:h-full">
-      <div className="flex items-center bg-black p-2  rounded-t-md">
+    <Container className="flex flex-col w-full min-h-[270px] h-auto md:h-auto">
+      <div className="flex items-center bg-slate-900 p-2 md:px-4 rounded-t-md">
         <h2 className="text-white text-2xl leading-6 grow">
           <span className="block">{city.name}</span>
           {city.state && (
@@ -39,11 +38,11 @@ function TodayCityWeather({ city }: TodayCityWeatherProps) {
           )}
         </h2>
         <div className="text-white text-center px-1">
-          <span className="block text-xl">{week[cityDate.getDay()]}</span>
+          <span className="block text-xl">{getWeekDay(cityDate.getDay())}</span>
           <span className="text-gray-300">{cityDate.toLocaleDateString()}</span>
         </div>
       </div>
-      <div className="flex flex-col justify-center grow gap-0.5 p-3">
+      <div className="flex flex-col justify-center grow gap-0.5 p-3 md:px-4">
         <WeatherItem
           title="Temperaturas máxima e mínima"
           Icon={<BsThermometerHalf size={30} className="-ml-2 mr-0.5" />}
@@ -71,11 +70,11 @@ function TodayCityWeather({ city }: TodayCityWeatherProps) {
           title="Precipitação acumulada"
           Icon={<SiRainmeter size={25} className="w-[30px] -ml-2 mr-0.5" />}
           legend="Precipitação"
-          value={`${todayWeather.precipitation_sum}mm`}
+          value={`${todayWeather.precipitation_sum} mm`}
         />
       </div>
     </Container>
   );
 }
 
-export default TodayCityWeather;
+export default TodayWeather;

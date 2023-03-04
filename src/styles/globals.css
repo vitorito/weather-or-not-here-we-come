@@ -26,13 +26,26 @@
     background: #666;
   }
 
-  .a {
-    background-image: url(https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pexels.com%2Fsearch%2Fblue%2520sky%2F&psig=AOvVaw3-IHKLJI6rqRslqASkcod6&ust=1677671661375000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCNjjko2UuP0CFQAAAAAdAAAAABAE);
-    background-position: center;
-    object-fit: cover;
-  }
-
   .btn {
     @apply w-full outline-none rounded-md px-2 py-1;
+  }
+
+  .hideable-item:nth-last-child(-n + 4) {
+    display: none;
+  }
+
+  @media screen and (min-width: 460px) {
+    .hideable-item:nth-child(-n + 2) {
+      display: unset;
+    }
+
+    .hideable-item:nth-last-child(-n + 3) {
+      display: none;
+    }
+  }
+  @media screen and (min-width: 768px) {
+    .hideable-item:nth-child(n) {
+      display: unset;
+    }
   }
 }
