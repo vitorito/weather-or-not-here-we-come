@@ -23,7 +23,7 @@ const getBgStyle = (city: FullCityWeatherData) => {
   }
 
   // day period
-  if (cityDate > sunriseEnd || cityDate < sunsetStart) {
+  if (cityDate > sunriseEnd && cityDate < sunsetStart) {
     return 'from-cyan-500 to-sky-900 bg-gradient-to-t';
   }
 
