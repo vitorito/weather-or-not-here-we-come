@@ -28,35 +28,37 @@ export type Weathercode =
   | 96
   | 99;
 
+export type HourlyWeatherData = {
+  time: string[];
+  temperature_2m: number[];
+};
+
+export type DailyWeatherData = {
+  time: string[];
+  weathercode: Weathercode[];
+  temperature_2m_max: number[];
+  temperature_2m_min: number[];
+  precipitation_sum: number[];
+  precipitation_probability_max: number[];
+  sunset: string[];
+  sunrise: string[];
+};
+
+export type CurrentWeatherData = {
+  temperature: number;
+  weathercode: Weathercode;
+  windspeed: number;
+  winddirection: number;
+  time: string;
+};
+
 export type PartialCityWeatherData = {
   date: string;
   utc_offset_seconds: number;
   timezone: string;
-  daily: {
-    time: string[];
-    weathercode: Weathercode[];
-    temperature_2m_max: number[];
-    temperature_2m_min: number[];
-    precipitation_sum: number[];
-    precipitation_probability_max: number[];
-    sunset: string[];
-    sunrise: string[];
-  };
-  daily_units: {
-    time: string;
-    weathercode: string;
-    temperature_2m_max: string;
-    temperature_2m_min: string;
-    precipitation_sum: string;
-    precipitation_probability_max: string;
-  };
-  current_weather: {
-    temperature: number;
-    weathercode: Weathercode;
-    windspeed: number;
-    winddirection: number;
-    time: string;
-  };
+  hourly: HourlyWeatherData;
+  daily: DailyWeatherData;
+  current_weather: CurrentWeatherData;
 };
 
 export type FullCityWeatherData = {

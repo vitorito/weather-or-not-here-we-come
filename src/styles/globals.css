@@ -4,13 +4,23 @@
 
 @layer base {
   body {
-    @apply bg-gray-200 h-screen;
+    @apply bg-gray-100 h-screen scroll-smooth;
   }
 }
 
 @layer components {
   ::-webkit-scrollbar {
-    width: 4px;
+    width: 6px;
+    height: 8px;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  :not(.no-scrollbar)::-webkit-scrollbar,
+  .scrollbar::-webkit-scrollbar {
+    display: unset;
   }
 
   ::-webkit-scrollbar-track {

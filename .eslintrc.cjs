@@ -34,6 +34,7 @@ module.exports = {
         "import/no-anonymous-default-export": [2, { "allowObject": true }],
         "react/no-array-index-key": "off",
         "no-plusplus": "off",
-        "react/jsx-props-no-spreading": "off"
+        "react/jsx-props-no-spreading": "off",
+        "no-continue": "off",
     }
 };

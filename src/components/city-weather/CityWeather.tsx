@@ -1,6 +1,7 @@
 import { FullCityWeatherData } from '@/types/wetherData';
 import CurrentWeather from './CurrentWeather';
 import NextDaysWeather from './NextDaysWeather';
+import NextHoursWeather from './NextHoursWeather';
 import TodayWeather from './TodayWeather';
 
 type CityWeatherProps = {
@@ -16,6 +17,7 @@ function CityWeather({ city }: CityWeatherProps) {
       <CurrentWeather city={city} />
       <TodayWeather city={city} />
       <NextDaysWeather city={city} />
+      <NextHoursWeather city={city} />
     </div>
   );
 }
