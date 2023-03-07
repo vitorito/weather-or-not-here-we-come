@@ -86,7 +86,7 @@ function NextHoursWeather({ city }: NextHoursWeatherProps) {
           <li
             key={hour.dateTime}
             className="flex flex-col gap-1 justify-between items-center grow text-gray-900
-            w-full h-36 px-2 border-r-2 border-amber-900 last:border-none"
+            w-full h-36 px-2 border-r-2 border-yellow-800 last:border-none"
           >
             <span>{hour.hour}:00</span>
             <div className="flex items-end grow">
@@ -95,7 +95,7 @@ function NextHoursWeather({ city }: NextHoursWeatherProps) {
                 className="w-8 rounded-t-xl from-orange-700 to-yellow-400 bg-gradient-to-t"
               />
             </div>
-            <span className="decoration-wavy decoration-neutral-700">
+            <span>
               {hour.temperature}°
             </span>
           </li>

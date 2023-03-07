@@ -1,22 +1,34 @@
 import { SearchCityData } from '@/lib/searchCities';
 import { useState } from 'react';
 import SearchForm from './SearchForm';
-import SearchResult from './SearchResult';
 import SelectCurrentLocationButton from './SelectCurrentLocationButton';
+import SearchResult from './SearchResult';
 
-function SearchCity() {
+type SearchCityProps = {
+  className?: string;
+};
+
+function SearchCity({ className }: SearchCityProps) {
   const [results, setResults] = useState<SearchCityData[]>([]);
 
   return (
-    <div
-      className="flex flex-col w-80 h-72 p-3 bg-white rounded-xl shadow-md shadow-black/70
-      font-poppins overflow-hidden"
-    >
+    <div className={`relative flex w-full ${className}`}>
       <SearchForm setResults={setResults} />
-      <SelectCurrentLocationButton />
-      {results.length > 0 && <SearchResult result={results} />}
+      <div
+        className="absolute inset-x-0 top-[120%] w-full p-2 bg-white
+        rounded-md shadow shadow-gray-600/70 z-20 text-base
+        scale-0 peer-focus-within:scale-100 transition-transform duration-300
+        [&_button]:py-1 [&_button]:px-2"
+      >
+        <SelectCurrentLocationButton />
+        <SearchResult result={results} />
+      </div>
     </div>
   );
 }
+
+SearchCity.defaultProps = {
+  className: '',
+};
 
 export default SearchCity;

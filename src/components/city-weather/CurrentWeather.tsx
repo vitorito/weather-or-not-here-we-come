@@ -47,16 +47,16 @@ function CurrentWeather({ city }: CurrentWeatherProps) {
     >
       <weatherInfo.icon
         title={`Clima ${weatherInfo.name}`}
-        className="fill-current z-10"
+        className="fill-current"
         size={100}
       />
-      <div title="Temperatura" className="z-10">
+      <div title="Temperatura" className='relative -right-1'>
         <span className="text-6xl">
           {Math.round(currentWeather.temperature)}
         </span>
         <span className="relative -top-7 text-4xl">°</span>
       </div>
-      <span title="Clima" className="text-xl z-10">
+      <span title="Clima" className="text-xl">
         {weatherInfo.name}
       </span>
       <WindInfo

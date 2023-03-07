@@ -7,7 +7,7 @@ function Button({
 }: ButtonHTMLAttributes<HTMLButtonElement>) {
   return (
     <button
-      className={`w-full outline-none rounded-md px-2 py-1 ${className}`}
+      className={`w-full outline-none rounded-md ${className}`}
       {...props}
     />
   );

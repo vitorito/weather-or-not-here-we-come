@@ -75,7 +75,7 @@ function NextDaysWeather({ city }: NextDaysWeatherProps) {
         type="button"
         onClick={() => setIsShrinked((prev) => !prev)}
         className="bg-white h-14 -mt-2 border border-current
-        text-cyan-900 text-lg md:hidden shadow shadow-black/50"
+        text-slate-800 text-lg md:hidden shadow shadow-black/50"
       >
         {isShrinked ? 'Próximos dias' : 'Mostrar menos'}
       </Button>
