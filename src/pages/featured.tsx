@@ -2,14 +2,22 @@ import MainContainer from '@/components/MainContainer';
 import getCityWeather from '@/lib/getCityWeather';
 
 import CityWeather from '@/components/city-weather/CityWeather';
+import { cityContext } from '@/providers/CityProvider';
 import { FullCityWeatherData } from '@/types/wetherData';
 import Head from 'next/head';
+import { useContext, useEffect } from 'react';
 
 type FeacturedCitiesProps = {
   city: FullCityWeatherData;
 };
 
 function FeacturedCity({ city }: FeacturedCitiesProps) {
+  const { setCity } = useContext(cityContext);
+  useEffect(() => {
+    if (setCity) {
+      setCity(city);
+    }
+  }, [city, setCity]);
   return (
     <>
       <Head>
@@ -17,7 +25,7 @@ function FeacturedCity({ city }: FeacturedCitiesProps) {
         <meta name="description" content="Clima na cidade em destaque" />
       </Head>
       <MainContainer>
-        <CityWeather city={city} />
+        <CityWeather />
       </MainContainer>
     </>
   );

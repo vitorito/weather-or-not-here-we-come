@@ -1,11 +1,8 @@
 /* eslint-disable no-param-reassign */
-import { FullCityWeatherData, HourlyWeatherData } from '@/types/wetherData';
-import { useMemo } from 'react';
+import { cityContext } from '@/providers/CityProvider';
+import { HourlyWeatherData } from '@/types/wetherData';
+import { useContext, useMemo } from 'react';
 import Container from '../Container';
-
-type NextHoursWeatherProps = {
-  city: FullCityWeatherData;
-};
 
 type HourWeatherData = {
   hour: string;
@@ -72,7 +69,8 @@ const getNextHoursData = (hourly: HourlyWeatherData): HourWeatherData[] => {
   return data;
 };
 
-function NextHoursWeather({ city }: NextHoursWeatherProps) {
+function NextHoursWeather() {
+  const { city } = useContext(cityContext);
   const hourlyData = useMemo(() => getNextHoursData(city.hourly), [city]);
   return (
     <Container className="flex flex-col items-center md:col-span-2 overflow-hidden">
@@ -95,9 +93,7 @@ function NextHoursWeather({ city }: NextHoursWeatherProps) {
                 className="w-8 rounded-t-xl from-orange-700 to-yellow-400 bg-gradient-to-t"
               />
             </div>
-            <span>
-              {hour.temperature}°
-            </span>
+            <span>{hour.temperature}°</span>
           </li>
         ))}
       </ul>

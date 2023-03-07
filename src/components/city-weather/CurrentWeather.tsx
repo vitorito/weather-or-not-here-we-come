@@ -1,11 +1,9 @@
 import getWeatherInfo from '@/lib/getWeatherInfo';
+import { cityContext } from '@/providers/CityProvider';
 import { FullCityWeatherData } from '@/types/wetherData';
+import { useContext } from 'react';
 import Container from '../Container';
 import WindInfo from './WindInfo';
-
-type CurrentWeatherProps = {
-  city: FullCityWeatherData;
-};
 
 const fortyFiveMinutesInMs = 45 * 60 * 1000;
 
@@ -36,7 +34,8 @@ const getBgStyle = (city: FullCityWeatherData) => {
   return 'from-cyan-800 to-slate-900 bg-gradient-to-t';
 };
 
-function CurrentWeather({ city }: CurrentWeatherProps) {
+function CurrentWeather() {
+  const { city } = useContext(cityContext);
   const currentWeather = city.current_weather;
   const weatherInfo = getWeatherInfo(currentWeather.weathercode);
 
@@ -50,7 +49,7 @@ function CurrentWeather({ city }: CurrentWeatherProps) {
         className="fill-current"
         size={100}
       />
-      <div title="Temperatura" className='relative -right-1'>
+      <div title="Temperatura" className="relative -right-1">
         <span className="text-6xl">
           {Math.round(currentWeather.temperature)}
         </span>

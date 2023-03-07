@@ -25,7 +25,10 @@ function SearchForm({ setResults }: SearchFormProps) {
   };
 
   return (
-    <form action="#" className="relative flex flex-col items-center gap-3 w-full peer">
+    <form
+      action="#"
+      className="relative flex flex-col items-center gap-3 w-full peer"
+    >
       <label htmlFor="search" className="text-lg sr-only">
         Adicionar localização
       </label>

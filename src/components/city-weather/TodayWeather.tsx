@@ -1,14 +1,12 @@
 import getWeatherInfo from '@/lib/getWeatherInfo';
 import getWeekDay from '@/lib/getWeekDay';
+import { cityContext } from '@/providers/CityProvider';
 import { FullCityWeatherData } from '@/types/wetherData';
+import { useContext } from 'react';
 import { BsCloudRain, BsThermometerHalf } from 'react-icons/bs';
 import { SiRainmeter } from 'react-icons/si';
 import Container from '../Container';
 import WeatherItem from './WeatherItem';
-
-type TodayWeatherProps = {
-  city: FullCityWeatherData;
-};
 
 const getTodayWeather = (city: FullCityWeatherData) => {
   const { daily } = city;
@@ -21,7 +19,8 @@ const getTodayWeather = (city: FullCityWeatherData) => {
   };
 };
 
-function TodayWeather({ city }: TodayWeatherProps) {
+function TodayWeather() {
+  const { city } = useContext(cityContext);
   const cityDate = new Date(city.date);
   const todayWeather = getTodayWeather(city);
 

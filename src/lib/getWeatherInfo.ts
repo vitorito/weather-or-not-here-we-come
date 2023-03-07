@@ -137,7 +137,7 @@ export const weatherInfos: Record<Weathercode, WeatherInfo> = {
 };
 
 function getWeatherInfo(weathercode: Weathercode): WeatherInfo {
-  return weatherInfos[weathercode];
+  return weatherInfos[weathercode] || weatherInfos[0];
 }
 
 export default getWeatherInfo;
