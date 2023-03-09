@@ -1,6 +1,6 @@
+import getCityWeather from '@/api/getCityWeather';
+import { SearchCityData } from '@/api/searchCities';
 import useRecentSearches from '@/hooks/useRecentsSearches';
-import getCityWeather from '@/lib/getCityWeather';
-import { SearchCityData } from '@/lib/searchCities';
 import { cityContext } from '@/providers/CityProvider';
 import { useRouter } from 'next/router';
 import { useContext } from 'react';

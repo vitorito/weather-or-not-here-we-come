@@ -3,7 +3,7 @@ import Head from 'next/head';
 import MainContainer from '@/components/MainContainer';
 import CityWeather from '@/components/city-weather/CityWeather';
 import useRecentSearches from '@/hooks/useRecentsSearches';
-import getCityWeather from '@/lib/getCityWeather';
+import getCityWeather from '@/api/getCityWeather';
 import { cityContext } from '@/providers/CityProvider';
 import { useRouter } from 'next/router';
 import { useContext, useEffect } from 'react';
