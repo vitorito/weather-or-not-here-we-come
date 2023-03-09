@@ -63,6 +63,6 @@ export type PartialCityWeatherData = {
 
 export type FullCityWeatherData = {
   name: string;
-  state: string;
+  state?: string;
   country: string;
 } & PartialCityWeatherData;

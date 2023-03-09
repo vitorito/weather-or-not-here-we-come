@@ -1,8 +1,9 @@
+import useRecentSearches from '@/hooks/useRecentsSearches';
 import getCityWeather from '@/lib/getCityWeather';
 import { SearchCityData } from '@/lib/searchCities';
 import { cityContext } from '@/providers/CityProvider';
 import { useRouter } from 'next/router';
-import { FocusEvent, useContext } from 'react';
+import { useContext } from 'react';
 import { MdAddLocationAlt } from 'react-icons/md';
 import Button from '../Button';
 
@@ -12,22 +13,21 @@ type SearchResultProps = {
 
 function SearchResult({ result }: SearchResultProps) {
   const { setCity } = useContext(cityContext);
+  const { add } = useRecentSearches();
   const router = useRouter();
 
-  const handleCitySelect = async (
-    e: FocusEvent<HTMLElement>,
-    city: SearchCityData,
-  ) => {
+  const handleCitySelect = async (city: SearchCityData) => {
     const { latitude, longitude } = city;
     const cityData = await getCityWeather(latitude, longitude);
-    if (setCity) {
-      setCity({
-        state: city.admin1 || '',
-        ...city,
-        ...cityData,
-      });
-      router.push('/');
-    }
+
+    add(city);
+    setCity({
+      state: city.admin1 || '',
+      ...city,
+      ...cityData,
+    });
+
+    router.push('/');
   };
 
   return (
@@ -39,7 +39,7 @@ function SearchResult({ result }: SearchResultProps) {
         <li key={city.id}>
           <Button
             type="button"
-            onFocus={async (e) => handleCitySelect(e, city)}
+            onMouseDown={async () => handleCitySelect(city)}
             className="flex items-center hover:bg-gray-200"
           >
             <div className="flex flex-wrap grow">

@@ -13,11 +13,11 @@ type FeacturedCitiesProps = {
 
 function FeacturedCity({ city }: FeacturedCitiesProps) {
   const { setCity } = useContext(cityContext);
+
   useEffect(() => {
-    if (setCity) {
-      setCity(city);
-    }
+    setCity(city);
   }, [city, setCity]);
+
   return (
     <>
       <Head>

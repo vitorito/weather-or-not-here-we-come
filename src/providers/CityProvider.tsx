@@ -44,12 +44,12 @@ const EMPTY_CITY_WEATHER_DATA: FullCityWeatherData = {
 
 type CityProviderValue = {
   city: FullCityWeatherData;
-  setCity: Dispatch<SetStateAction<FullCityWeatherData>> | null;
+  setCity: Dispatch<SetStateAction<FullCityWeatherData>>;
 };
 
 export const cityContext = createContext<CityProviderValue>({
   city: EMPTY_CITY_WEATHER_DATA,
-  setCity: null,
+  setCity: () => {}, // eslint-disable-line @typescript-eslint/no-empty-function
 });
 
 function CityProvider({ children }: CityProviderProps) {
