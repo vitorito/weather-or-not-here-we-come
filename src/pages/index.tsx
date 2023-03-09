@@ -1,28 +1,33 @@
 import Head from 'next/head';
 
+import getCityWeather from '@/api/getCityWeather';
 import MainContainer from '@/components/MainContainer';
 import CityWeather from '@/components/city-weather/CityWeather';
 import useRecentSearches from '@/hooks/useRecentsSearches';
-import getCityWeather from '@/api/getCityWeather';
 import { cityContext } from '@/providers/CityProvider';
-import { useRouter } from 'next/router';
+import { FullCityWeatherData } from '@/types/wetherData';
 import { useContext, useEffect } from 'react';
 
-function Home() {
+type HomeProps = {
+  city: FullCityWeatherData;
+};
+
+function Home({ city }: HomeProps) {
   const { recentSearches } = useRecentSearches();
   const { setCity } = useContext(cityContext);
-  const router = useRouter();
 
   useEffect(() => {
+    setCity(city);
+
     if (recentSearches.length > 0) {
-      const city = recentSearches[0];
-      getCityWeather(city.latitude, city.longitude).then((cityData) => {
-        setCity({ ...city, ...cityData });
-      });
-    } else {
-      router.push('/featured');
+      const recentCity = recentSearches[0];
+      getCityWeather(recentCity.latitude, recentCity.longitude).then(
+        (cityData) => {
+          setCity({ ...recentCity, ...cityData });
+        },
+      );
     }
-  }, [recentSearches, router, setCity]);
+  }, [city, recentSearches, setCity]);
 
   return (
     <>
@@ -36,6 +41,31 @@ function Home() {
       </MainContainer>
     </>
   );
+}
+
+const featuredCityInfo = {
+  name: 'João Pessoa',
+  state: 'Paraíba',
+  country: 'Brasil',
+  latitude: -7.12,
+  longitude: -34.86,
+};
+
+export async function getStaticProps() {
+  const { latitude, longitude } = featuredCityInfo;
+  const featuredCityData = await getCityWeather(latitude, longitude);
+
+  const city = {
+    ...featuredCityInfo,
+    ...featuredCityData,
+  };
+
+  return {
+    props: {
+      city,
+    },
+    revalidate: 20 * 60 * 60, // 20 minutes
+  };
 }
 
 export default Home;

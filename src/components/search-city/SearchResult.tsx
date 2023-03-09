@@ -2,7 +2,6 @@ import getCityWeather from '@/api/getCityWeather';
 import { SearchCityData } from '@/api/searchCities';
 import useRecentSearches from '@/hooks/useRecentsSearches';
 import { cityContext } from '@/providers/CityProvider';
-import { useRouter } from 'next/router';
 import { useContext } from 'react';
 import { MdAddLocationAlt } from 'react-icons/md';
 import Button from '../Button';
@@ -14,7 +13,6 @@ type SearchResultProps = {
 function SearchResult({ result }: SearchResultProps) {
   const { setCity } = useContext(cityContext);
   const { add } = useRecentSearches();
-  const router = useRouter();
 
   const handleCitySelect = async (city: SearchCityData) => {
     const { latitude, longitude } = city;
@@ -26,8 +24,6 @@ function SearchResult({ result }: SearchResultProps) {
       ...city,
       ...cityData,
     });
-
-    router.push('/');
   };
 
   return (
