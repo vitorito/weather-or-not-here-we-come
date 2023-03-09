@@ -1,5 +1,5 @@
 import MainContainer from '@/components/MainContainer';
-import getCityWeather from '@/lib/getCityWeather';
+import getCityWeather from '@/api/getCityWeather';
 
 import CityWeather from '@/components/city-weather/CityWeather';
 import { cityContext } from '@/providers/CityProvider';

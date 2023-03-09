@@ -2,7 +2,7 @@ import {
   MIN_CITY_NAME_LEN,
   SearchCityData,
   searchCities,
-} from '@/lib/searchCities';
+} from '@/api/searchCities';
 import { ChangeEvent, Dispatch, SetStateAction, useState } from 'react';
 import { FaSearch } from 'react-icons/fa';
 

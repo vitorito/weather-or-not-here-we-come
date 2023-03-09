@@ -1,6 +1,6 @@
-import getDayWeather from '@/lib/getDayWeather';
 import { cityContext } from '@/providers/CityProvider';
 import { FullCityWeatherData } from '@/types/wetherData';
+import getDayWeather from '@/util/getDayWeather';
 import { useContext, useState } from 'react';
 import { GiHeavyRain } from 'react-icons/gi';
 import Button from '../Button';

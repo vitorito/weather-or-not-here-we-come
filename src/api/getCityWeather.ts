@@ -1,5 +1,5 @@
 import { PartialCityWeatherData } from '@/types/wetherData';
-import getCityDate from '../lib/getCityDate';
+import getCityDate from '../util/getCityDate';
 
 // https://api.open-meteo.com/v1/forecast?latitude=-7.12&longitude=-34.86&daily=weathercode,temperature_2m_max,temperature_2m_min,precipitation_sum,precipitation_probability_max&current_weather=true&timezone=America%2FSao_Paulo
 const API_URL =

@@ -1,4 +1,4 @@
-import { SearchCityData } from '@/lib/searchCities';
+import { SearchCityData } from '@/api/searchCities';
 import { useState } from 'react';
 import SearchForm from './SearchForm';
 import SearchResult from './SearchResult';

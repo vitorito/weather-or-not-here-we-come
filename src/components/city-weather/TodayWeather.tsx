@@ -1,7 +1,7 @@
-import getWeatherInfo from '@/lib/getWeatherInfo';
-import getWeekDay from '@/lib/getWeekDay';
 import { cityContext } from '@/providers/CityProvider';
 import { FullCityWeatherData } from '@/types/wetherData';
+import getWeatherInfo from '@/util/getWeatherInfo';
+import getWeekDay from '@/util/getWeekDay';
 import { useContext } from 'react';
 import { BsCloudRain, BsThermometerHalf } from 'react-icons/bs';
 import { SiRainmeter } from 'react-icons/si';

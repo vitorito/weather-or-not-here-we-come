@@ -1,6 +1,6 @@
-import getWeatherInfo from '@/lib/getWeatherInfo';
 import { cityContext } from '@/providers/CityProvider';
 import { FullCityWeatherData } from '@/types/wetherData';
+import getWeatherInfo from '@/util/getWeatherInfo';
 import { useContext } from 'react';
 import Container from '../Container';
 import WindInfo from './WindInfo';
