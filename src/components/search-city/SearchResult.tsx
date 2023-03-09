@@ -1,7 +1,5 @@
-import getCityWeather from '@/api/getCityWeather';
 import { SearchCityData } from '@/api/searchCities';
-import useRecentSearches from '@/hooks/useRecentsSearches';
-import { cityContext } from '@/providers/CityProvider';
+import { recentSearchesContext } from '@/providers/RecentSearchesProvider';
 import { useContext } from 'react';
 import { MdAddLocationAlt } from 'react-icons/md';
 import Button from '../Button';
@@ -11,20 +9,7 @@ type SearchResultProps = {
 };
 
 function SearchResult({ result }: SearchResultProps) {
-  const { setCity } = useContext(cityContext);
-  const { add } = useRecentSearches();
-
-  const handleCitySelect = async (city: SearchCityData) => {
-    const { latitude, longitude } = city;
-    const cityData = await getCityWeather(latitude, longitude);
-
-    add(city);
-    setCity({
-      state: city.admin1 || '',
-      ...city,
-      ...cityData,
-    });
-  };
+  const { add } = useContext(recentSearchesContext);
 
   return (
     <ul
@@ -35,7 +20,7 @@ function SearchResult({ result }: SearchResultProps) {
         <li key={city.id}>
           <Button
             type="button"
-            onMouseDown={async () => handleCitySelect(city)}
+            onMouseDown={() => add(city)}
             className="flex items-center hover:bg-gray-200"
           >
             <div className="flex flex-wrap grow">

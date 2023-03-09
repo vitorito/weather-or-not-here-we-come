@@ -1,7 +1,6 @@
 /* eslint-disable no-param-reassign */
-import { cityContext } from '@/providers/CityProvider';
-import { HourlyWeatherData } from '@/types/wetherData';
-import { useContext, useMemo } from 'react';
+import { FullCityWeatherData, HourlyWeatherData } from '@/types/wetherData';
+import { useMemo } from 'react';
 import Container from '../Container';
 
 type HourWeatherData = {
@@ -9,6 +8,10 @@ type HourWeatherData = {
   temperature: number;
   dateTime: string;
   height: string;
+};
+
+type NextHoursWeatherProps = {
+  city: FullCityWeatherData;
 };
 
 const calculateTemperatureHeight = (
@@ -69,8 +72,7 @@ const getNextHoursData = (hourly: HourlyWeatherData): HourWeatherData[] => {
   return data;
 };
 
-function NextHoursWeather() {
-  const { city } = useContext(cityContext);
+function NextHoursWeather({ city }: NextHoursWeatherProps) {
   const hourlyData = useMemo(() => getNextHoursData(city.hourly), [city]);
   return (
     <Container className="flex flex-col items-center md:col-span-2 overflow-hidden">

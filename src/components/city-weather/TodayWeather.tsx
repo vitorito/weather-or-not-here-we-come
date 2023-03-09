@@ -1,12 +1,10 @@
-import { cityContext } from '@/providers/CityProvider';
 import { FullCityWeatherData } from '@/types/wetherData';
 import getWeatherInfo from '@/util/getWeatherInfo';
 import getWeekDay from '@/util/getWeekDay';
-import { useContext } from 'react';
 import { BsCloudRain, BsThermometerHalf } from 'react-icons/bs';
 import { SiRainmeter } from 'react-icons/si';
-import Container from '../Container';
 import WeatherItem from './WeatherItem';
+import Container from '../Container';
 
 const getTodayWeather = (city: FullCityWeatherData) => {
   const { daily } = city;
@@ -19,9 +17,13 @@ const getTodayWeather = (city: FullCityWeatherData) => {
   };
 };
 
-function TodayWeather() {
-  const { city } = useContext(cityContext);
+type TodayWeatherProps = {
+  city: FullCityWeatherData;
+};
+
+function TodayWeather({ city }: TodayWeatherProps) {
   const cityDate = new Date(city.date);
+  // TODO: use util method
   const todayWeather = getTodayWeather(city);
 
   return (
@@ -29,8 +31,8 @@ function TodayWeather() {
       <div className="flex items-center bg-slate-900 p-2 md:px-4 rounded-t-md">
         <h2 className="text-white text-2xl leading-6 grow">
           <span className="block">{city.name}</span>
-          {city.state && (
-            <span className="text-lg text-gray-300 mr-1">{city.state},</span>
+          {city.admin1 && (
+            <span className="text-lg text-gray-300 mr-1">{city.admin1},</span>
           )}
           {city.country && (
             <span className="text-lg text-gray-300">{city.country}</span>

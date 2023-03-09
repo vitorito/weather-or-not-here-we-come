@@ -1,7 +1,6 @@
-import { cityContext } from '@/providers/CityProvider';
 import { FullCityWeatherData } from '@/types/wetherData';
 import getDayWeather from '@/util/getDayWeather';
-import { useContext, useState } from 'react';
+import { useState } from 'react';
 import { GiHeavyRain } from 'react-icons/gi';
 import Button from '../Button';
 import Container from '../Container';
@@ -19,8 +18,11 @@ const getDaysWeatherData = (city: FullCityWeatherData) => {
   return days;
 };
 
-function NextDaysWeather() {
-  const { city } = useContext(cityContext);
+type NextDaysWeatherProps = {
+  city: FullCityWeatherData;
+};
+
+function NextDaysWeather({ city }: NextDaysWeatherProps) {
   const [isShrinked, setIsShrinked] = useState(true);
   const daysWeather = getDaysWeatherData(city);
 

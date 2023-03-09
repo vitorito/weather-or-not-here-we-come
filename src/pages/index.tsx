@@ -3,22 +3,19 @@ import Head from 'next/head';
 import getCityWeather from '@/api/getCityWeather';
 import MainContainer from '@/components/MainContainer';
 import CityWeather from '@/components/city-weather/CityWeather';
-import useRecentSearches from '@/hooks/useRecentsSearches';
-import { cityContext } from '@/providers/CityProvider';
+import { recentSearchesContext } from '@/providers/RecentSearchesProvider';
 import { FullCityWeatherData } from '@/types/wetherData';
-import { useContext, useEffect } from 'react';
+import { useContext, useEffect, useState } from 'react';
 
 type HomeProps = {
-  city: FullCityWeatherData;
+  featuredCity: FullCityWeatherData;
 };
 
-function Home({ city }: HomeProps) {
-  const { recentSearches } = useRecentSearches();
-  const { setCity } = useContext(cityContext);
+function Home({ featuredCity }: HomeProps) {
+  const { recentSearches } = useContext(recentSearchesContext);
+  const [city, setCity] = useState(featuredCity);
 
   useEffect(() => {
-    setCity(city);
-
     if (recentSearches.length > 0) {
       const recentCity = recentSearches[0];
       getCityWeather(recentCity.latitude, recentCity.longitude).then(
@@ -27,7 +24,7 @@ function Home({ city }: HomeProps) {
         },
       );
     }
-  }, [city, recentSearches, setCity]);
+  }, [recentSearches, setCity]);
 
   return (
     <>
@@ -37,7 +34,7 @@ function Home({ city }: HomeProps) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <MainContainer className="flex justify-center">
-        <CityWeather />
+        <CityWeather city={city} />
       </MainContainer>
     </>
   );
@@ -45,7 +42,7 @@ function Home({ city }: HomeProps) {
 
 const featuredCityInfo = {
   name: 'João Pessoa',
-  state: 'Paraíba',
+  admin1: 'Paraíba',
   country: 'Brasil',
   latitude: -7.12,
   longitude: -34.86,
@@ -62,7 +59,7 @@ export async function getStaticProps() {
 
   return {
     props: {
-      city,
+      featuredCity: city,
     },
     revalidate: 20 * 60 * 60, // 20 minutes
   };
