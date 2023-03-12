@@ -46,7 +46,7 @@ const getNextHoursData = (hourly: HourlyWeatherData): HourWeatherData[] => {
     if (hourDate >= hourNow) {
       const temperature = Math.round(hourly.temperature_2m[i]);
       maxTemperature = Math.max(maxTemperature, temperature);
-      minTemperature = Math.min(maxTemperature, temperature);
+      minTemperature = Math.min(minTemperature, temperature);
 
       data.push({
         temperature,
