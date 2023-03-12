@@ -29,9 +29,13 @@ function Home({ featuredCity }: HomeProps) {
   return (
     <>
       <Head>
-        <title>Wheater Or Not Here We Come</title>
-        <meta name="description" content="Site de previsão do tempo" />
+        <title>{`Clima em ${city.name}`}</title>
+        <meta
+          name="description"
+          content={`Previsão do tempo para ${city.name}`}
+        />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="shortcut icon" href="/sun.png" type="image/png" />
       </Head>
       <MainContainer className="flex justify-center">
         <CityWeather city={city} />

@@ -6,14 +6,19 @@ import Button from '../Button';
 
 type SearchResultProps = {
   result: SearchCityData[];
+  emptyResultMsg: string;
 };
 
-function SearchResult({ result }: SearchResultProps) {
+function SearchResult({ result, emptyResultMsg }: SearchResultProps) {
   const { add } = useContext(recentSearchesContext);
+
+  if (result.length === 0) {
+    return <p className='px-4 py-2'>{emptyResultMsg}</p>
+  }
 
   return (
     <ul
-      className="relative flex flex-col gap-1 grow w-full max-h-64
+      className="flex flex-col gap-1 grow w-full max-h-64
       overflow-y-auto overscroll-contain"
     >
       {result.map((city) => (

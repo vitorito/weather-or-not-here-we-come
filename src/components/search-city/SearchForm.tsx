@@ -3,21 +3,38 @@ import {
   SearchCityData,
   searchCities,
 } from '@/api/searchCities';
-import { ChangeEvent, Dispatch, SetStateAction, useState } from 'react';
+import { recentSearchesContext } from '@/providers/RecentSearchesProvider';
+import {
+  ChangeEvent,
+  Dispatch,
+  SetStateAction,
+  useContext,
+  useEffect,
+  useState,
+} from 'react';
 import { FaSearch } from 'react-icons/fa';
 
 type SearchFormProps = {
   setResults: Dispatch<SetStateAction<SearchCityData[]>>;
+  setShowRecents: Dispatch<SetStateAction<boolean>>;
 };
 
-function SearchForm({ setResults }: SearchFormProps) {
+function SearchForm({ setResults, setShowRecents }: SearchFormProps) {
   const [cityName, setCityName] = useState('');
+  const { recentSearches } = useContext(recentSearchesContext);
+
+  useEffect(() => {
+    setCityName('');
+    setResults([]);
+    setShowRecents(true);
+  }, [recentSearches, setResults, setShowRecents]);
 
   const handleCityNameChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
     setCityName(value);
+    setShowRecents(value.length < MIN_CITY_NAME_LEN);
 
-    if (value.length <= MIN_CITY_NAME_LEN) {
+    if (value.length < MIN_CITY_NAME_LEN) {
       setResults([]);
       return;
     }
