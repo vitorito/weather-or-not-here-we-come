@@ -3,8 +3,8 @@ import getWeatherInfo from '@/util/getWeatherInfo';
 import getWeekDay from '@/util/getWeekDay';
 import { BsCloudRain, BsThermometerHalf } from 'react-icons/bs';
 import { SiRainmeter } from 'react-icons/si';
-import WeatherItem from './WeatherItem';
 import Container from '../Container';
+import WeatherItem from './WeatherItem';
 
 const getTodayWeather = (city: FullCityWeatherData) => {
   const { daily } = city;
@@ -29,18 +29,19 @@ function TodayWeather({ city }: TodayWeatherProps) {
   return (
     <Container className="flex flex-col w-full min-h-[270px] h-auto md:h-auto">
       <div className="flex items-center bg-slate-900 p-2 md:px-4 rounded-t-md">
-        <h2 className="text-white text-2xl leading-6 grow">
+        <h1 className="text-white text-2xl leading-6 grow">
+          <span className="sr-only">Clima hoje em </span>
           <span className="block">{city.name}</span>
           {city.admin1 && (
-            <span className="text-lg text-gray-300 mr-1">{city.admin1},</span>
+            <span className="text-lg text-gray-300 mr-1">{`${city.admin1},`}</span>
           )}
           {city.country && (
             <span className="text-lg text-gray-300">{city.country}</span>
           )}
-        </h2>
+        </h1>
         <div className="text-white text-center px-1">
-          <span className="block text-xl">{getWeekDay(cityDate.getDay())}</span>
-          <span className="text-gray-300">{cityDate.toLocaleDateString()}</span>
+          <p className="block text-xl">{getWeekDay(cityDate.getDay())}</p>
+          <p className="text-gray-300">{cityDate.toLocaleDateString()}</p>
         </div>
       </div>
       <div className="flex flex-col justify-center grow gap-0.5 p-3 md:px-4">

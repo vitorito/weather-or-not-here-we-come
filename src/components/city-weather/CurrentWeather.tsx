@@ -45,20 +45,21 @@ function CurrentWeather({ city }: CurrentWeatherProps) {
       className={`relative flex flex-col items-center justify-center gap-4 grow
       w-full h-[45vh] max-h-[290px] md:h-80 text-white ${getBgStyle(city)}`}
     >
+      <h2 className="sr-only">Clima atual</h2>
       <weatherInfo.icon
         title={`Clima ${weatherInfo.name}`}
         className="fill-current"
         size={100}
       />
-      <div title="Temperatura" className="relative -right-1">
+      <div title="Temperatura atual" className="relative -right-1">
         <span className="text-6xl">
           {Math.round(currentWeather.temperature)}
         </span>
         <span className="relative -top-7 text-4xl">°</span>
       </div>
-      <span title="Clima" className="text-xl">
+      <p title="Clima atual" className="text-xl">
         {weatherInfo.name}
-      </span>
+      </p>
       <WindInfo
         speed={currentWeather.windspeed}
         direction={currentWeather.winddirection}

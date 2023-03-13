@@ -16,9 +16,9 @@ function WeatherItem({ title, Icon, legend, value }: WeatherItemProps) {
     >
       <div className="flex items-center justify-center">
         {Icon}
-        <span>{legend}</span>
+        <p>{legend}</p>
       </div>
-      <span>{value}</span>
+      <p>{value}</p>
     </div>
   );
 }

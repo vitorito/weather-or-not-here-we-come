@@ -6,21 +6,10 @@
   body {
     @apply bg-gray-100 h-screen scroll-smooth;
   }
-}
 
-@layer components {
   ::-webkit-scrollbar {
     width: 6px;
     height: 8px;
-  }
-
-  .no-scrollbar::-webkit-scrollbar {
-    display: none;
-  }
-
-  :not(.no-scrollbar)::-webkit-scrollbar,
-  .scrollbar::-webkit-scrollbar {
-    display: unset;
   }
 
   ::-webkit-scrollbar-track {
@@ -35,23 +24,15 @@
   ::-webkit-scrollbar-thumb:hover {
     background: #666;
   }
+}
 
-  .hideable-item:nth-last-child(-n + 4) {
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
     display: none;
   }
 
-  @media screen and (min-width: 460px) {
-    .hideable-item:nth-child(-n + 2) {
-      display: unset;
-    }
-
-    .hideable-item:nth-last-child(-n + 3) {
-      display: none;
-    }
-  }
-  @media screen and (min-width: 768px) {
-    .hideable-item:nth-child(n) {
-      display: unset;
-    }
+  :not(.no-scrollbar)::-webkit-scrollbar,
+  .scrollbar::-webkit-scrollbar {
+    display: unset;
   }
 }

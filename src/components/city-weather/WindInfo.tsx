@@ -1,3 +1,4 @@
+import getWindDirectionName from '@/util/getWindDirectionName';
 import { GiArrowhead } from 'react-icons/gi';
 import { TbWind } from 'react-icons/tb';
 
@@ -13,7 +14,7 @@ function WindInfo({ speed, direction }: WindInfoProps) {
       absolute right-3 top-6 md:top-8 md:right-6"
     >
       <div
-        title="Direção do vento"
+        title={`Direção do vento: ${getWindDirectionName(direction)}`}
         className="flex items-center justify-center relative
         w-12 aspect-square rounded-full border-current border-2 text-sm"
       >
