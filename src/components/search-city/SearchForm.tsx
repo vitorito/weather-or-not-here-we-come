@@ -60,7 +60,7 @@ function SearchForm({ setResults, setShowRecents }: SearchFormProps) {
         onChange={handleCityNameChange}
         className="w-full h-12 xsm:h-14 px-4 bg-white opacity-75 sm:opacity-100 focus:opacity-100 peer
         text-gray-800 text-xl text-center shadow shadow-gray-600/60 rounded-lg outline-none
-        placeholder:text-slate-600 placeholder:text-lg focus:placeholder:text-transparent
+        placeholder:text-slate-600 placeholder:text-lg focus:placeholder:text-transparent caret-slate-600
         placeholder:transition-colors placeholder:duration-300 focus:placeholder:duration-[0ms]"
       />
       <FaSearch

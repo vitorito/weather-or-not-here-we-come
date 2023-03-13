@@ -13,7 +13,7 @@ function SearchResult({ result, emptyResultMsg }: SearchResultProps) {
   const { add } = useContext(recentSearchesContext);
 
   if (result.length === 0) {
-    return <p className='px-4 py-2'>{emptyResultMsg}</p>
+    return <p className='w-full text-center px-4 py-2'>{emptyResultMsg}</p>
   }
 
   return (

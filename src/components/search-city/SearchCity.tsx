@@ -11,7 +11,7 @@ type SearchCityProps = {
 function SearchCity({ className }: SearchCityProps) {
   const [results, setResults] = useState<SearchCityData[]>([]);
   const [showRecents, setShowRecents] = useState(true);
-  const { recentSearches } = useContext(recentSearchesContext);
+  const { recentSearches, clear } = useContext(recentSearchesContext);
 
   return (
     <div className={`relative flex w-full ${className}`}>
@@ -24,7 +24,16 @@ function SearchCity({ className }: SearchCityProps) {
       >
         {showRecents ? (
           <>
-            <h3 className="px-4 py-2 text-lg">Buscas Recentes</h3>
+            <div className="flex items-center justify-between px-4 py-2">
+              <h3 className="text-lg">Buscas Recentes</h3>
+              <button
+                type="button"
+                onMouseDown={clear}
+                className="text-slate-700 hover:underline decoration-current"
+              >
+                Limpar buscas
+              </button>
+            </div>
             <SearchResult
               emptyResultMsg="Não há buscas recentes"
               result={recentSearches}
