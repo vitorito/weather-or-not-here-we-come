@@ -1,21 +1,10 @@
 import { FullCityWeatherData } from '@/types/wetherData';
-import getWeatherInfo from '@/util/getWeatherInfo';
+import getDayWeather from '@/util/getDayWeather';
 import getWeekDay from '@/util/getWeekDay';
 import { BsCloudRain, BsThermometerHalf } from 'react-icons/bs';
 import { SiRainmeter } from 'react-icons/si';
 import Container from '../Container';
 import WeatherItem from './WeatherItem';
-
-const getTodayWeather = (city: FullCityWeatherData) => {
-  const { daily } = city;
-  return {
-    weather: getWeatherInfo(daily.weathercode[0]),
-    precipitation_probability: daily.precipitation_probability_max[0],
-    precipitation_sum: daily.precipitation_sum[0],
-    temperature_max: Math.round(daily.temperature_2m_max[0]),
-    temperature_min: Math.round(daily.temperature_2m_min[0]),
-  };
-};
 
 type TodayWeatherProps = {
   city: FullCityWeatherData;
@@ -23,8 +12,9 @@ type TodayWeatherProps = {
 
 function TodayWeather({ city }: TodayWeatherProps) {
   const cityDate = new Date(city.date);
-  // TODO: use util method
-  const todayWeather = getTodayWeather(city);
+  const todayWeather = getDayWeather(city, 0);
+
+  if (todayWeather === null) return null;
 
   return (
     <Container className="flex flex-col w-full min-h-[270px] h-auto md:h-auto">
@@ -49,7 +39,7 @@ function TodayWeather({ city }: TodayWeatherProps) {
           title="Temperaturas máxima e mínima"
           Icon={<BsThermometerHalf size={30} className="-ml-2 mr-0.5" />}
           legend="Max/Min"
-          value={`${todayWeather.temperature_max}°/${todayWeather.temperature_min}°`}
+          value={`${todayWeather.temperature_2m_max}°/${todayWeather.temperature_2m_min}°`}
         />
         <WeatherItem
           title="Clima predominante"
@@ -66,7 +56,7 @@ function TodayWeather({ city }: TodayWeatherProps) {
           title="Possibilidade de chuva"
           Icon={<BsCloudRain size={25} className="w-[30px] -ml-2 mr-0.5" />}
           legend="Possibilidade de Chuva"
-          value={`${todayWeather.precipitation_probability}%`}
+          value={`${todayWeather.precipitation_probability_max}%`}
         />
         <WeatherItem
           title="Precipitação acumulada"
