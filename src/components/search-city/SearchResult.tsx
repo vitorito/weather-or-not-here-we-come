@@ -26,8 +26,8 @@ function SearchResult({ result, emptyResultMsg }: SearchResultProps) {
           <Button
             type="button"
             onMouseDown={() => add(city)}
-            className="flex items-center hover:bg-gray-200
-            dark:hover:bg-slate-900 dark:lg:hover:bg-slate-800"
+            className="flex items-center hover:bg-gray-200 dark:hover:bg-slate-800
+            dark:sm:hover:bg-slate-900 dark:lg:hover:bg-slate-800"
           >
             <div className="flex flex-wrap grow">
               <p className="w-full">{city.name}</p>

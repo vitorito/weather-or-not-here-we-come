@@ -18,7 +18,7 @@ function SearchCity({ className }: SearchCityProps) {
       <SearchForm setResults={setResults} setShowRecents={setShowRecents} />
       <div
         className="absolute inset-x-0 top-[120%] w-full p-2 rounded-md z-10
-        bg-white dark:bg-slate-800 dark:lg:bg-slate-900
+        bg-white dark:bg-slate-900 sm:dark:bg-gray-800 dark:lg:bg-slate-900
         shadow shadow-gray-500/70 dark:shadow-gray-900/70
         text-base text-slate-900 dark:text-gray-200
         scale-0 peer-focus-within:scale-100 transition-transform duration-300
