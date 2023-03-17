@@ -15,7 +15,7 @@ const getBgStyle = (city: FullCityWeatherData) => {
 
   // sunrise period
   if (cityDate >= sunriseStart && cityDate <= sunriseEnd) {
-    return 'from-yellow-400 via-cyan-900 to-slate-900 bg-gradient-to-t';
+    return 'from-amber-500 to-sky-800 bg-gradient-to-t';
   }
 
   // day period
@@ -25,11 +25,11 @@ const getBgStyle = (city: FullCityWeatherData) => {
 
   // sunset period
   if (cityDate >= sunsetStart && cityDate <= sunsetEnd) {
-    return 'from-yellow-500 via-orange-600 to-sky-900 bg-gradient-to-t';
+    return 'from-amber-500 via-orange-600 to-sky-800 bg-gradient-to-t';
   }
 
   // night and dawn period
-  return 'from-cyan-800 to-slate-900 bg-gradient-to-t';
+  return 'from-cyan-700 to-slate-900 bg-gradient-to-t';
 };
 
 type CurrentWeatherProps = {
