@@ -23,11 +23,11 @@ type WeatherInfo = {
 
 export const weatherInfos: Record<Weathercode, WeatherInfo> = {
   0: {
-    name: 'Ensolarado',
+    name: 'Céu Limpo',
     icon: MdOutlineWbSunny,
   },
   1: {
-    name: 'Parcialmente Ensolarado',
+    name: 'Parcialmente Limpo',
     icon: IoPartlySunnyOutline,
   },
   2: {
