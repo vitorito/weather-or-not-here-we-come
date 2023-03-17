@@ -22,7 +22,7 @@ type MainConatinerProps = {
 function MainContainer({ children, className }: MainConatinerProps) {
   return (
     <main
-      className={`${poppins.variable} ${mono.variable} font-poppins max-w-4xl xl:max-w-5xl h-[90vh] m-auto
+      className={`${poppins.variable} ${mono.variable} font-poppins max-w-4xl xl:max-w-5xl m-auto
         ${className}`}
     >
       {children}

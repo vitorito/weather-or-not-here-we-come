@@ -3,10 +3,6 @@
 @tailwind utilities;
 
 @layer base {
-  body {
-    @apply bg-gray-100 h-screen scroll-smooth;
-  }
-
   ::-webkit-scrollbar {
     width: 6px;
     height: 8px;

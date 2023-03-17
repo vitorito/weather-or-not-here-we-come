@@ -1,10 +1,11 @@
 /** @type {import('tailwindcss').Config} */
 
-// eslint-disable-next-line import/no-extraneous-dependencies, @typescript-eslint/no-var-requires
+// eslint-disable-next-line
 const { fontFamily } = require('tailwindcss/defaultTheme');
 
 module.exports = {
   content: ["./src/**/*.tsx"],
+  darkMode: 'class',
   theme: {
     extend: {},
     fontFamily: {

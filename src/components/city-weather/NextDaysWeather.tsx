@@ -3,6 +3,7 @@ import getDayWeather from '@/util/getDayWeather';
 import { useState } from 'react';
 import { GiHeavyRain } from 'react-icons/gi';
 import Button from '../Button';
+import Container from '../Container';
 
 const daysLimit = 4;
 
@@ -36,55 +37,57 @@ function NextDaysWeather({ city }: NextDaysWeatherProps) {
         }`}
       >
         {daysWeather.map((day) => (
-          <li
-            key={day.date}
-            className="bg-white hidden md:block shadow-md shadow-gray-500/70 rounded-md
-            text-center overflow-hidden"
-          >
-            <h3
-              className="bg-cyan-900 flex items-center justify-between
-            h-12 py-2 px-4 text-white"
-            >
-              <span className="text-xl">{day.week_day}</span>
-              <span className="text-lg">{day.date.substring(0, 5)}</span>
-            </h3>
-            <div
-              className="flex items-center gap-2 bg-white min-h-[105px]
-              px-4 xsm:px-2 sm:px-4 md:px-6 xl:px-2 py-2"
-            >
-              <div className="flex flex-col w-12 justify-center divide-y-2 divide-gray-400">
-                <span className="relative text-2xl text-center">
-                  {Math.round(day.temperature_2m_max)}
-                  <span className="absolute text-xl -top-1">°</span>
-                </span>
-                <span className="relative text-xl text-center">
-                  {Math.round(day.temperature_2m_min)}
-                  <span className="absolute text-base -top-0.5">°</span>
-                </span>
+          <li key={day.date} className="hidden md:block">
+            <Container className="text-center">
+              <h3
+                className="flex items-center justify-between bg-cyan-900 dark:bg-gray-900
+                h-12 py-2 px-4 text-white dark:text-current"
+              >
+                <span className="text-xl">{day.week_day}</span>
+                <span className="text-lg">{day.date.substring(0, 5)}</span>
+              </h3>
+              <div
+                className="flex items-center gap-2
+                min-h-[105px] px-4 xsm:px-2 sm:px-4 md:px-6 xl:px-2 py-2"
+              >
+                <div className="flex flex-col w-12 justify-center divide-y-2 divide-gray-500">
+                  <span className="relative text-2xl text-center">
+                    {day.temperature_2m_max}
+                    <span className="absolute text-xl -top-1">°</span>
+                  </span>
+                  <span className="relative text-xl text-center">
+                    {day.temperature_2m_min}
+                    <span className="absolute text-base -top-0.5">°</span>
+                  </span>
+                </div>
+                <div className="flex flex-col items-center justify-between grow">
+                  <day.weather.icon size={50} className="fill-current" />
+                  <p className="text-sm h-[1.5lh]">{day.weather.name}</p>
+                </div>
+                <div className="flex flex-col gap-1 items-center justify-center w-12">
+                  <GiHeavyRain
+                    title="Probabilidade de chuva"
+                    size={30}
+                    className="fill-current"
+                  />
+                  <span>{day.precipitation_probability_max}%</span>
+                </div>
               </div>
-              <div className="flex flex-col items-center justify-between grow">
-                <day.weather.icon size={50} className="fill-gray-900" />
-                <p className="text-sm h-[1.5lh]">{day.weather.name}</p>
-              </div>
-              <div className="flex flex-col gap-1 items-center justify-center w-12">
-                <GiHeavyRain
-                  title="Probabilidade de chuva"
-                  size={30}
-                  className="fill-slate-900"
-                />
-                <span>{day.precipitation_probability_max}%</span>
-              </div>
-            </div>
+            </Container>
           </li>
         ))}
       </ul>
       <Button
         type="button"
         onClick={() => setIsShrinked((prev) => !prev)}
-        className="bg-white h-14 mt-3 border border-current
-        text-slate-800 text-lg md:hidden shadow shadow-black/50"
+        className="mt-4 md:hidden "
       >
-        {isShrinked ? 'Próximos dias' : 'Mostrar menos'}
+        <Container
+          className="flex items-center justify-center h-14 text-lg
+          border border-gray-500"
+        >
+          {isShrinked ? 'Próximos dias' : 'Mostrar menos'}
+        </Container>
       </Button>
     </div>
   );

@@ -13,7 +13,7 @@ function SearchResult({ result, emptyResultMsg }: SearchResultProps) {
   const { add } = useContext(recentSearchesContext);
 
   if (result.length === 0) {
-    return <p className='w-full text-center px-4 py-2'>{emptyResultMsg}</p>
+    return <p className="w-full text-center px-4 py-2">{emptyResultMsg}</p>;
   }
 
   return (
@@ -26,22 +26,22 @@ function SearchResult({ result, emptyResultMsg }: SearchResultProps) {
           <Button
             type="button"
             onMouseDown={() => add(city)}
-            className="flex items-center hover:bg-gray-200"
+            className="flex items-center hover:bg-gray-200
+            dark:hover:bg-slate-900 dark:lg:hover:bg-slate-800"
           >
             <div className="flex flex-wrap grow">
               <p className="w-full">{city.name}</p>
-              <p className="flex flex-wrap grow justify-center">
-                {city.admin1 && (
-                  <span className="text-sm text-gray-600 mr-1">
-                    {city.admin1},
-                  </span>
-                )}
-                <span className="text-sm text-gray-600">{city.country}</span>
+              <p
+                className="flex flex-wrap grow justify-center
+              text-sm text-gray-700 dark:text-gray-400"
+              >
+                {city.admin1 && <span className="mr-1">{city.admin1},</span>}
+                <span>{city.country}</span>
               </p>
             </div>
             <MdAddLocationAlt
               size={30}
-              className="fill-slate-700 min-w-[30px] h-full"
+              className="fill-slate-700 dark:fill-gray-400 min-w-[30px] h-full"
             />
           </Button>
         </li>

@@ -58,15 +58,18 @@ function SearchForm({ setResults, setShowRecents }: SearchFormProps) {
         placeholder="Pesquisar cidade"
         value={cityName}
         onChange={handleCityNameChange}
-        className="w-full h-12 xsm:h-14 px-4 bg-white opacity-75 sm:opacity-100 focus:opacity-100 peer
-        text-gray-800 text-xl text-center shadow shadow-gray-600/60 rounded-lg outline-none
-        placeholder:text-slate-600 placeholder:text-lg focus:placeholder:text-transparent caret-slate-600
+        className="w-full h-12 xsm:h-14 px-4 bg-white dark:bg-gray-300 peer
+        opacity-75 sm:opacity-100 focus:opacity-100 shadow shadow-gray-600/60
+        text-gray-800 text-xl text-center  rounded-lg outline-none caret-slate-600
+        placeholder:text-slate-600 dark:placeholder:text-gray-900 placeholder:text-lg
+        focus:placeholder:text-transparent dark:focus:placeholder:text-transparent
         placeholder:transition-colors placeholder:duration-300 focus:placeholder:duration-[0ms]"
       />
       <FaSearch
         size={20}
-        className="absolute right-4 md:right-6 top-1/2 -translate-y-1/2 text-gray-500
-        peer-focus:text-slate-700 pointer-events-none"
+        className="absolute right-4 md:right-6 top-1/2 -translate-y-1/2
+        text-gray-500 dark:text-slate-600 peer-focus:text-black
+        dark:peer-focus:text-slate-800 pointer-events-none"
       />
     </form>
   );

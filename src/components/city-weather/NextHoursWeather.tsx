@@ -11,9 +11,9 @@ function NextHoursWeather({ city }: NextHoursWeatherProps) {
   const hourlyData = useMemo(() => getNextHoursData(city.hourly), [city]);
 
   return (
-    <Container className="flex flex-col items-center md:col-span-2 overflow-hidden">
-      <div className="flex items-center justify-center bg-yellow-800 h-14 w-full">
-        <h2 className="text-lg md:text-xl text-white text-center">
+    <Container className="flex flex-col items-center md:col-span-2">
+      <div className="flex items-center justify-center bg-yellow-800 dark:bg-gray-900 h-14 w-full">
+        <h2 className="text-lg md:text-xl text-white dark:text-current text-center">
           Temperatura nas próximas horas
         </h2>
       </div>
@@ -21,17 +21,18 @@ function NextHoursWeather({ city }: NextHoursWeatherProps) {
         {hourlyData.map((hour) => (
           <li
             key={hour.dateTime}
-            className="flex flex-col gap-1 justify-between items-center grow text-gray-900
-            w-full h-36 px-2 border-r-2 border-yellow-800 last:border-none"
+            className="flex flex-col gap-1 justify-between items-center grow w-full h-36 px-2
+            border-r-2 border-yellow-800 dark:border-gray-500 last:border-none"
           >
             <span>{hour.hour}:00</span>
-            <div className="flex items-end grow">
+            <div className="flex flex-col items-center justify-end grow">
+              <span>{hour.temperature}°</span>
               <div
                 style={{ height: hour.height }}
-                className="w-8 rounded-t-xl from-orange-700 to-yellow-400 bg-gradient-to-t"
-              />
+                className="w-8 rounded-t-xl bg-gradient-to-t from-orange-700 to-yellow-400
+                dark:from-slate-900/80 dark:to-blue-200"
+                />
             </div>
-            <span>{hour.temperature}°</span>
           </li>
         ))}
       </ul>

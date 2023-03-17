@@ -8,7 +8,10 @@ type ContainerProps = {
 function Container({ children, className }: ContainerProps) {
   return (
     <div
-      className={`bg-white shadow-md shadow-gray-500/70 rounded-md ${className}`}
+      className={`bg-white dark:bg-gray-700 rounded-md overflow-hidden
+      shadow-md shadow-gray-500/70 dark:shadow-gray-900/80
+      text-slate-900 dark:text-gray-200
+      ${className}`}
     >
       {children}
     </div>
