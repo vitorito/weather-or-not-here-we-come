@@ -7,14 +7,13 @@ type HourWeatherData = {
   height: string;
 };
 
-
 const calculateTemperatureHeight = (
   temperature: number,
   maxTemperature: number,
   minTemperature: number,
 ) => {
-  const maxH = 90;
-  const minH = 50;
+  const maxH = 80;
+  const minH = 40;
   const deltaH = maxH - minH;
   const maxDeltaT = maxTemperature - minTemperature;
   const deltaT = maxTemperature - temperature;
@@ -56,7 +55,8 @@ const getNextHoursData = (hourly: HourlyWeatherData): HourWeatherData[] => {
   }
 
   data.forEach((hour) => {
-    hour.height = calculateTemperatureHeight( // eslint-disable-line
+    // eslint-disable-next-line
+    hour.height = calculateTemperatureHeight(
       hour.temperature,
       maxTemperature,
       minTemperature,
