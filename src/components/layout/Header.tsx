@@ -1,7 +1,8 @@
+import { ThemeControlls } from '@/hooks/useTheme';
 import SearchCity from '../search-city/SearchCity';
 import ToggleThemeButton from './ToggleThemeButton';
 
-function Header() {
+function Header({ isDark, toggleTheme }: ThemeControlls) {
   return (
     <header
       className="relative flex items-center justify-between lg:justify-evenly
@@ -11,7 +12,7 @@ function Header() {
     >
       <span className="w-14" />
       <SearchCity className="hidden sm:flex max-w-md md:max-w-lg" />
-      <ToggleThemeButton />
+      <ToggleThemeButton isDark={isDark} toggleTheme={toggleTheme} />
     </header>
   );
 }

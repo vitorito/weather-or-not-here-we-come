@@ -1,10 +1,7 @@
-import { themeContext } from '@/providers/ThemeProvider';
-import { useContext } from 'react';
+import { ThemeControlls } from '@/hooks/useTheme';
 import { BsMoonStarsFill, BsSunFill } from 'react-icons/bs';
 
-function ToggleThemeButton() {
-  const { isDark, toggleTheme } = useContext(themeContext);
-
+function ToggleThemeButton({ isDark, toggleTheme }: ThemeControlls) {
   return (
     <button
       type="button"

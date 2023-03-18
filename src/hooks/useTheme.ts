@@ -1,10 +1,5 @@
-import { ReactNode, createContext, useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import store from 'store2';
-
-type ThemeProviderValue = {
-  isDark: boolean;
-  toggleTheme: () => void;
-};
 
 const THEME_LOCAL_KEY = 'theme_preference';
 
@@ -17,12 +12,12 @@ const loadLocalThemePreference = (): boolean | null =>
 const getUserThemePreference = (): boolean =>
   window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-export const themeContext = createContext<ThemeProviderValue>({
-  isDark: true,
-  toggleTheme: () => {}, // eslint-disable-line
-});
+export type ThemeControlls = {
+  isDark: boolean;
+  toggleTheme: () => void;
+};
 
-function ThemeProvider({ children }: { children: ReactNode }) {
+function useTheme(): ThemeControlls {
   const [isDark, setIsDark] = useState(true);
 
   useEffect(() => {
@@ -44,17 +39,10 @@ function ThemeProvider({ children }: { children: ReactNode }) {
     });
   };
 
-  const value = useMemo(
-    () => ({
-      isDark,
-      toggleTheme,
-    }),
-    [isDark],
-  );
-
-  return (
-    <themeContext.Provider value={value}>{children}</themeContext.Provider>
-  );
+  return {
+    isDark,
+    toggleTheme,
+  };
 }
 
-export default ThemeProvider;
+export default useTheme;
