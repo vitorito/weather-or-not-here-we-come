@@ -42,8 +42,8 @@ function CurrentWeather({ city }: CurrentWeatherProps) {
 
   return (
     <Container
-      className={`relative flex flex-col items-center justify-center gap-4 grow
-      w-full h-[45vh] max-h-[290px] md:h-80 ${getBgStyle(city)}`}
+      className={`relative flex flex-col items-center justify-center gap-4
+      w-full h-[45vh] max-h-[280px] ${getBgStyle(city)}`}
     >
       <h2 className="sr-only">Clima atual</h2>
       <weatherInfo.icon
