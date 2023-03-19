@@ -26,12 +26,15 @@ function NextHoursWeather({ city }: NextHoursWeatherProps) {
           >
             <span>{hour.hour}:00</span>
             <div className="flex flex-col items-center justify-end grow">
-              <span>{hour.temperature}°</span>
+              <span className="relative">
+                {hour.temperature}
+                <span className='absolute top-0 -right-[.7ch]'>°</span>
+              </span>
               <div
                 style={{ height: hour.height }}
                 className="w-8 rounded-t-xl bg-gradient-to-t from-orange-700 to-yellow-400
                 dark:from-slate-900/80 dark:to-blue-200"
-                />
+              />
             </div>
           </li>
         ))}
