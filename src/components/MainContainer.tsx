@@ -1,18 +1,4 @@
-// eslint-disable-next-line camelcase
-import { Noto_Sans_Mono, Poppins } from '@next/font/google';
 import { ReactNode } from 'react';
-
-const poppins = Poppins({
-  weight: ['300', '400', '600'],
-  subsets: ['latin'],
-  variable: '--font-poppins',
-});
-
-const mono = Noto_Sans_Mono({
-  weight: ['300', '400', '600'],
-  subsets: ['latin'],
-  variable: '--font-mono',
-});
 
 type MainConatinerProps = {
   children: ReactNode;
@@ -22,7 +8,7 @@ type MainConatinerProps = {
 function MainContainer({ children, className }: MainConatinerProps) {
   return (
     <main
-      className={`${poppins.variable} ${mono.variable} font-poppins w-full max-w-4xl xl:max-w-5xl m-auto
+      className={`w-full max-w-4xl xl:max-w-5xl m-auto
         ${className}`}
     >
       {children}
