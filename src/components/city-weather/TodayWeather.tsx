@@ -17,7 +17,7 @@ function TodayWeather({ city }: TodayWeatherProps) {
   if (todayWeather === null) return null;
 
   return (
-    <Container className="flex flex-col w-full min-h-[270px] overflow-hidden">
+    <Container className="flex flex-col w-full h-[45vh] max-h-72 overflow-hidden">
       <div
         className="flex items-center bg-slate-800 dark:bg-gray-900
         p-2 pt-3 md:px-4 text-white dark:text-current"
