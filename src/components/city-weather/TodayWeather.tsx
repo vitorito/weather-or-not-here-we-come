@@ -37,7 +37,7 @@ function TodayWeather({ city }: TodayWeatherProps) {
         <div className="text-center px-1">
           <p className="block text-xl">{getWeekDay(cityDate.getDay())}</p>
           <p className="text-gray-300 dark:text-gray-400">
-            {cityDate.toLocaleDateString()}
+            {cityDate.toLocaleDateString('pt-br')}
           </p>
         </div>
       </div>
