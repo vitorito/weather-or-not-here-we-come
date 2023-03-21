@@ -21,10 +21,12 @@ const calculateTemperatureHeight = (
   return `${maxH - (deltaT * deltaH) / maxDeltaT}%`;
 };
 
-const getNextHoursData = (hourly: HourlyWeatherData): HourWeatherData[] => {
+const getNextHoursData = (
+  hourly: HourlyWeatherData,
+  currentTime: string,
+): HourWeatherData[] => {
   const data: HourWeatherData[] = [];
-  const now = new Date();
-  const hourNow = new Date(`${now.toDateString()} ${now.getHours()}:00`);
+  const cityHour = new Date(currentTime);
 
   let maxTemperature = Number.MIN_SAFE_INTEGER;
   let minTemperature = Number.MAX_SAFE_INTEGER;
@@ -36,7 +38,7 @@ const getNextHoursData = (hourly: HourlyWeatherData): HourWeatherData[] => {
   while (data.length < hoursLimit && i < iterationLimit) {
     const hourDate = new Date(hourly.time[i]);
 
-    if (hourDate >= hourNow) {
+    if (hourDate >= cityHour) {
       const temperature = Math.round(hourly.temperature_2m[i]);
       maxTemperature = Math.max(maxTemperature, temperature);
       minTemperature = Math.min(minTemperature, temperature);

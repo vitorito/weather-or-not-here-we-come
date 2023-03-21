@@ -1,6 +1,5 @@
 import { FullCityWeatherData } from '@/types/wetherData';
 import getDayWeather from '@/util/getDayWeather';
-import getWeekDay from '@/util/getWeekDay';
 import { BsCloudRain, BsThermometerHalf } from 'react-icons/bs';
 import { SiRainmeter } from 'react-icons/si';
 import Container from '../Container';
@@ -11,7 +10,6 @@ type TodayWeatherProps = {
 };
 
 function TodayWeather({ city }: TodayWeatherProps) {
-  const cityDate = new Date(city.date);
   const todayWeather = getDayWeather(city, 0);
 
   if (todayWeather === null) return null;
@@ -35,9 +33,9 @@ function TodayWeather({ city }: TodayWeatherProps) {
           )}
         </h1>
         <div className="text-center px-1">
-          <p className="block text-xl">{getWeekDay(cityDate.getDay())}</p>
+          <p className="block text-xl">{todayWeather.week_day}</p>
           <p className="text-gray-300 dark:text-gray-400">
-            {cityDate.toLocaleDateString('pt-br')}
+            {todayWeather.date}
           </p>
         </div>
       </div>

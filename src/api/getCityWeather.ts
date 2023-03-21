@@ -5,7 +5,7 @@ import getCityDate from '../util/getCityDate';
 const API_URL =
   'https://api.open-meteo.com/v1/forecast?hourly=temperature_2m&daily=weathercode,temperature_2m_max,' +
   'temperature_2m_min,sunrise,sunset,precipitation_sum,precipitation_probability_max' +
-  '&current_weather=true&timezone=auto';
+  '&current_weather=true&forecast_days=5&timezone=auto';
 
 const getCityWeather = async (
   lat: number,
