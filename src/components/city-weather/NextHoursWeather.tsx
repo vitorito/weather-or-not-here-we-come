@@ -8,7 +8,10 @@ type NextHoursWeatherProps = {
 };
 
 function NextHoursWeather({ city }: NextHoursWeatherProps) {
-  const hourlyData = useMemo(() => getNextHoursData(city.hourly), [city]);
+  const hourlyData = useMemo(
+    () => getNextHoursData(city.hourly, city.current_weather.time),
+    [city],
+  );
 
   return (
     <Container className="flex flex-col items-center md:col-span-2">
