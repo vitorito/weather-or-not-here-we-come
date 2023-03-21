@@ -10,7 +10,7 @@ const getDayWeather = (city: FullCityWeatherData, day: number) => {
   const date = new Date(`${daily.time[day]}T00:00`);
 
   return {
-    date: date.toLocaleDateString(),
+    date: date.toLocaleDateString('pt-br'),
     week_day: getWeekDay(date.getDay()),
     weathercode: daily.weathercode[day],
     weather: getWeatherInfo(daily.weathercode[day]),
