@@ -30,11 +30,12 @@ function Home({ featuredCity }: HomeProps) {
     <>
       <Head>
         <title>{`Clima em ${city.name}`}</title>
+        <meta property="og:title" content="Clima atual e previsão do tempo" />
         <meta
           name="description"
-          content={`Previsão do tempo para ${city.name}`}
+          content="Informações atualizadas sobre o clima e previsão do tempo para os próximos dias."
         />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
       <MainContainer className="flex justify-center">
         <CityWeather city={city} />
