@@ -26,14 +26,17 @@ function WindInfo({ speed, direction }: WindInfoProps) {
           S
         </span>
         <span className="absolute top-1/2 -left-[32%] -translate-y-1/2">O</span>
-        <GiArrowhead size={20} style={{ rotate: `${-direction - 45}deg` }} />
+        <GiArrowhead
+          size="1.25rem"
+          style={{ rotate: `${-direction - 45}deg` }}
+        />
         <span className="hidden">{speed}</span>
       </div>
       <div title="Velocidade do vento" className="flex items-center gap-1 mt-4">
-        <TbWind size={22} />
+        <TbWind size="1.375rem" />
         <span className="text-sm">
           {Math.round(speed)}
-          <span className="text-xs ml-[2px]">km/h</span>
+          <span className="text-xs ml-[0.125rem]">km/h</span>
         </span>
       </div>
     </div>

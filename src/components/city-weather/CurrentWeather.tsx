@@ -49,7 +49,7 @@ function CurrentWeather({ city }: CurrentWeatherProps) {
       <weatherInfo.icon
         title={`Clima ${weatherInfo.name}`}
         className="text-white fill-current"
-        size={100}
+        size="6.25rem"
       />
       <div title="Temperatura atual" className="relative -right-1 text-white">
         <span className="text-6xl">

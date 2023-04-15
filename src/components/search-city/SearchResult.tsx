@@ -40,8 +40,8 @@ function SearchResult({ result, emptyResultMsg }: SearchResultProps) {
               </p>
             </div>
             <MdAddLocationAlt
-              size={30}
-              className="fill-slate-700 dark:fill-gray-400 min-w-[30px] h-full"
+              size="1.875rem"
+              className="fill-slate-700 dark:fill-gray-400 min-w-[1.875rem] h-full"
             />
           </Button>
         </li>

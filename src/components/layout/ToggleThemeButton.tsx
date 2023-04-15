@@ -13,12 +13,12 @@ function ToggleThemeButton({ isDark, toggleTheme }: ThemeControlls) {
         [&>*]:transition [&>*]:duration-300"
     >
       <BsMoonStarsFill
-        size={30}
+        size="1.875rem"
         className="absolute rotate-45 dark:rotate-0 fill-transparent dark:fill-current
         opacity-0 dark:opacity-100"
       />
       <BsSunFill
-        size={32}
+        size="2rem"
         className="absolute rotate-90 dark:rotate-0 fill-current dark:fill-transparent
         opacity-100 dark:opacity-0"
       />

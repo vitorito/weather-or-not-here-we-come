@@ -9,7 +9,7 @@ function Footer() {
       before:w-4/5 before:max-w-6xl before:mx-auto before:border-t-2 before:border-t-gray-700"
     >
       <p className="flex items-center justify-center gap-1 xl:-translate-y-1/4">
-        <BsGithub size={18} />
+        <BsGithub size="1.125rem" />
         <span>Feito por </span>
         <a
           href="https://github.com/vitorito/weather-or-not-here-we-come"
