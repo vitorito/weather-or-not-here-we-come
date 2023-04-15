@@ -2,7 +2,7 @@ import { Head, Html, Main, NextScript } from 'next/document';
 
 export default function Document() {
   return (
-    <Html lang="pt-br">
+    <Html lang="pt-br" className='resolution-120:text-[80%] resolution-144:text-[calc(16px*16/24)]'>
       <Head>
         <link rel="shortcut icon" href="/sun.png" type="image/png" />
         <meta
