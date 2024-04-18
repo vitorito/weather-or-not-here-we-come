@@ -48,7 +48,7 @@ function NextDaysWeather({ city }: NextDaysWeatherProps) {
               </h3>
               <div
                 className="flex items-center gap-2
-                min-h-[105px] px-4 xsm:px-2 sm:px-4 md:px-6 xl:px-2 py-2"
+                min-h-[6.5625rem] px-4 xsm:px-2 sm:px-4 md:px-6 xl:px-2 py-2"
               >
                 <div className="flex flex-col w-12 justify-center divide-y-2 divide-gray-500">
                   <span className="relative text-2xl text-center">
@@ -61,13 +61,13 @@ function NextDaysWeather({ city }: NextDaysWeatherProps) {
                   </span>
                 </div>
                 <div className="flex flex-col items-center justify-between grow">
-                  <day.weather.icon size={50} className="fill-current" />
+                  <day.weather.icon size="3.125rem" className="fill-current" />
                   <p className="text-sm h-[1.5lh]">{day.weather.name}</p>
                 </div>
                 <div className="flex flex-col gap-1 items-center justify-center w-12">
                   <GiHeavyRain
                     title="Probabilidade de chuva"
-                    size={30}
+                    size="1.875rem"
                     className="fill-current"
                   />
                   <span>{day.precipitation_probability_max}%</span>

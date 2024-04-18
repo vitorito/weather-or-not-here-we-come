@@ -42,7 +42,7 @@ function TodayWeather({ city }: TodayWeatherProps) {
       <div className="flex flex-col justify-center grow gap-0.5 p-3 md:px-4">
         <WeatherItem
           title="Temperaturas máxima e mínima"
-          Icon={<BsThermometerHalf size={30} className="-ml-2 mr-0.5" />}
+          Icon={<BsThermometerHalf size="1.875rem" className="-ml-2 mr-0.5" />}
           legend="Max/Min"
           value={`${todayWeather.temperature_2m_max}°/${todayWeather.temperature_2m_min}°`}
         />
@@ -50,8 +50,8 @@ function TodayWeather({ city }: TodayWeatherProps) {
           title="Clima predominante"
           Icon={
             <todayWeather.weather.icon
-              size={25}
-              className="w-[30px] -ml-2 mr-0.5"
+              size="1.5625rem"
+              className="w-[1.875rem] -ml-2 mr-0.5"
             />
           }
           legend="Clima"
@@ -59,13 +59,23 @@ function TodayWeather({ city }: TodayWeatherProps) {
         />
         <WeatherItem
           title="Possibilidade de chuva"
-          Icon={<BsCloudRain size={25} className="w-[30px] -ml-2 mr-0.5" />}
+          Icon={
+            <BsCloudRain
+              size="1.5625rem"
+              className="w-[1.875rem] -ml-2 mr-0.5"
+            />
+          }
           legend="Possibilidade de Chuva"
           value={`${todayWeather.precipitation_probability_max}%`}
         />
         <WeatherItem
           title="Precipitação acumulada"
-          Icon={<SiRainmeter size={25} className="w-[30px] -ml-2 mr-0.5" />}
+          Icon={
+            <SiRainmeter
+              size="1.5625rem"
+              className="w-[1.875rem] -ml-2 mr-0.5"
+            />
+          }
           legend="Precipitação"
           value={`${todayWeather.precipitation_sum} mm`}
         />

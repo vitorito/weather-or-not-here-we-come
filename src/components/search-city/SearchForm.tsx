@@ -66,7 +66,7 @@ function SearchForm({ setResults, setShowRecents }: SearchFormProps) {
         placeholder:transition-colors placeholder:duration-300 focus:placeholder:duration-[0ms]"
       />
       <FaSearch
-        size={20}
+        size="1.25rem"
         className="absolute right-4 md:right-6 top-1/2 -translate-y-1/2
         text-gray-500 dark:text-slate-600 peer-focus:text-black
         dark:peer-focus:text-slate-800 pointer-events-none"

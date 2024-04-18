@@ -14,7 +14,7 @@ function ShrinkText({ text, open }: ShrinkTextProps) {
             key={i}
             className={`block transition-[max-width,color] ${
               open
-                ? 'max-w-[20px] duration-700'
+                ? 'max-w-[1.25rem] duration-700'
                 : 'max-w-0 duration-[500ms,400ms] text-transparent'
             }`}
           >

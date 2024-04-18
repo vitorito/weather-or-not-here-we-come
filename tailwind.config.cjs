@@ -7,7 +7,12 @@ module.exports = {
   content: ["./src/**/*.tsx"],
   darkMode: 'class',
   theme: {
-    extend: {},
+    extend: {
+      screens: {
+        'resolution-120': {'raw': '(min-width: 1280px) and (min-resolution: 120dpi)'},
+        'resolution-144': {'raw': '(min-width: 1536px) and (min-resolution: 144dpi)'}
+      }
+    },
     fontFamily: {
       'mono': ['var(--font-mono)', ...fontFamily.mono],
       'poppins': ['var(--font-poppins)', ...fontFamily.sans]
